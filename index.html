@@ -1,687 +1,234 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="da">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>[Firmanavn] — Vi bygger jeres hjemmeside</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>L&amp;J Optimization — hjemmesider til VVS og håndværk</title>
+<meta name="description" content="Vi bygger hurtige, enkle hjemmesider til VVS'ere og andre håndværksvirksomheder. Fast pris, online på 14 dage, ingen binding.">
+<meta name="theme-color" content="#0B1A22">
+<link rel="canonical" href="https://ljoptimization.dk/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="da_DK">
+<meta property="og:title" content="L&amp;J Optimization — hjemmesider til VVS og håndværk">
+<meta property="og:description" content="Fast pris, online på 14 dage, ingen binding.">
+<meta property="og:url" content="https://ljoptimization.dk/">
+<meta property="og:image" content="https://ljoptimization.dk/og.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='5' fill='%230B1A22'/%3E%3Cpath d='M8 8v16h7' stroke='%23F5F6F4' stroke-width='3.4' fill='none'/%3E%3Cpath d='M24 8v11a5 5 0 0 1-7 4.6' stroke='%23E2542B' stroke-width='3.4' fill='none'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --cream:#F6F2EA;
-    --white:#FFFFFF;
-    --ink:#221F1B;
-    --stone:#8C8579;
-    --stone-light:#C9C2B4;
-    --sage:#748367;
-    --sage-deep:#5C6A50;
-    --sage-tint:#E4E9DD;
-    --radius:2px;
-    --maxw:1180px;
-  }
-
-  *{box-sizing:border-box;margin:0;padding:0;}
-
-  html{scroll-behavior:smooth;}
-  @media (prefers-reduced-motion: reduce){
-    html{scroll-behavior:auto;}
-    *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
-  }
-
-  body{
-    background:var(--cream);
-    color:var(--ink);
-    font-family:'Instrument Sans',sans-serif;
-    line-height:1.5;
-    -webkit-font-smoothing:antialiased;
-  }
-
-  a{color:inherit;text-decoration:none;}
-  ul{list-style:none;}
-  img,svg{display:block;max-width:100%;}
-
-  .mono{
-    font-family:'JetBrains Mono',monospace;
-    letter-spacing:0.02em;
-  }
-
-  .tag{
-    font-family:'JetBrains Mono',monospace;
-    font-size:0.72rem;
-    text-transform:uppercase;
-    letter-spacing:0.08em;
-    color:var(--sage-deep);
-  }
-
-  .wrap{
-    max-width:var(--maxw);
-    margin:0 auto;
-    padding:0 32px;
-  }
-
-  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
-    outline:2px solid var(--sage-deep);
-    outline-offset:3px;
-  }
-
-  /* ---------- placeholder / spec-sheet motif ---------- */
-  .slot{
-    position:relative;
-    border:1px dashed var(--stone-light);
-    border-radius:var(--radius);
-    background:rgba(255,255,255,0.35);
-  }
-  .slot::before{
-    content:attr(data-slot);
-    position:absolute;
-    top:-0.62em;
-    left:12px;
-    background:var(--cream);
-    padding:0 6px;
-    font-family:'JetBrains Mono',monospace;
-    font-size:0.66rem;
-    letter-spacing:0.06em;
-    text-transform:uppercase;
-    color:var(--sage-deep);
-  }
-  .slot-fill{background:var(--white);}
-  .slot-fill::before{background:var(--white);}
-
-  /* ---------- header ---------- */
-  header{
-    position:sticky;
-    top:0;
-    z-index:50;
-    background:rgba(246,242,234,0.9);
-    backdrop-filter:blur(6px);
-    border-bottom:1px solid var(--stone-light);
-  }
-  .nav-row{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    height:76px;
-    gap:24px;
-  }
-  .logo-slot{
-    padding:6px 14px;
-    font-weight:600;
-    font-size:0.95rem;
-  }
-  nav ul{
-    display:flex;
-    gap:32px;
-    font-size:0.92rem;
-  }
-  nav a{
-    color:var(--stone);
-    transition:color .15s ease;
-  }
-  nav a:hover{color:var(--ink);}
-  .btn{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    padding:12px 22px;
-    border-radius:999px;
-    font-size:0.9rem;
-    font-weight:600;
-    border:1px solid transparent;
-    cursor:pointer;
-    white-space:nowrap;
-  }
-  .btn-primary{
-    background:var(--ink);
-    color:var(--cream);
-  }
-  .btn-primary:hover{background:var(--sage-deep);}
-  .btn-ghost{
-    background:transparent;
-    border:1px solid var(--stone-light);
-    color:var(--ink);
-  }
-  .btn-ghost:hover{border-color:var(--ink);}
-  .nav-toggle{display:none;}
-
-  /* ---------- hero ---------- */
-  .hero{
-    padding:96px 0 88px;
-    display:grid;
-    grid-template-columns:1.05fr 0.95fr;
-    gap:56px;
-    align-items:center;
-  }
-  .eyebrow{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    margin-bottom:22px;
-  }
-  .eyebrow::before{
-    content:"";
-    width:7px;height:7px;
-    background:var(--sage);
-    border-radius:50%;
-  }
-  h1{
-    font-size:clamp(2.3rem, 4vw, 3.4rem);
-    line-height:1.08;
-    font-weight:700;
-    letter-spacing:-0.01em;
-    margin-bottom:22px;
-  }
-  h1 .slot{
-    display:inline-block;
-    padding:2px 14px 4px;
-    margin:6px 0;
-  }
-  .hero p.sub{
-    color:var(--stone);
-    font-size:1.08rem;
-    max-width:46ch;
-    margin-bottom:32px;
-  }
-  .hero-ctas{
-    display:flex;
-    gap:14px;
-    flex-wrap:wrap;
-    margin-bottom:28px;
-  }
-  .hero-meta{
-    font-size:0.85rem;
-    color:var(--stone);
-  }
-
-  /* browser mockup — signature element */
-  .browser{
-    background:var(--white);
-    border:1px solid var(--stone-light);
-    border-radius:10px;
-    overflow:hidden;
-    box-shadow:0 24px 60px -30px rgba(34,31,27,0.35);
-  }
-  .browser-bar{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    padding:12px 14px;
-    border-bottom:1px solid var(--stone-light);
-    background:var(--cream);
-  }
-  .browser-dot{
-    width:9px;height:9px;border-radius:50%;
-    background:var(--stone-light);
-  }
-  .browser-url{
-    flex:1;
-    margin-left:8px;
-    background:var(--white);
-    border:1px solid var(--stone-light);
-    border-radius:6px;
-    padding:5px 10px;
-    font-size:0.72rem;
-    color:var(--stone);
-  }
-  .browser-body{
-    padding:22px;
-    display:flex;
-    flex-direction:column;
-    gap:14px;
-  }
-  .bblock{
-    background:var(--sage-tint);
-    border-radius:4px;
-  }
-  .bblock.line{height:11px;}
-  .bblock.line.w60{width:60%;}
-  .bblock.line.w40{width:40%;}
-  .bblock.hero-img{height:120px;}
-  .bblock-row{display:flex;gap:12px;}
-  .bblock-row .bblock{flex:1;height:64px;}
-
-  /* ---------- generic section spacing ---------- */
-  section{padding:88px 0;}
-  .section-head{
-    max-width:640px;
-    margin-bottom:52px;
-  }
-  .section-head h2{
-    font-size:clamp(1.7rem,2.6vw,2.2rem);
-    font-weight:700;
-    letter-spacing:-0.01em;
-    margin-top:12px;
-  }
-  .section-head p{
-    color:var(--stone);
-    margin-top:14px;
-    font-size:1.02rem;
-  }
-
-  /* ---------- process ---------- */
-  .process{
-    background:var(--white);
-    border-top:1px solid var(--stone-light);
-    border-bottom:1px solid var(--stone-light);
-  }
-  .steps{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:0;
-  }
-  .step{
-    padding:8px 32px 8px 0;
-    border-left:1px solid var(--stone-light);
-    padding-left:28px;
-  }
-  .step:first-child{border-left:none;padding-left:0;}
-  .step-num{
-    font-family:'JetBrains Mono',monospace;
-    font-size:0.78rem;
-    color:var(--sage-deep);
-    margin-bottom:14px;
-    display:block;
-  }
-  .step h3{
-    font-size:1.15rem;
-    margin-bottom:10px;
-    font-weight:600;
-  }
-  .step p{color:var(--stone);font-size:0.95rem;}
-
-  /* ---------- benefits ---------- */
-  .benefits-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-  }
-  .benefit-card{
-    background:var(--white);
-    border:1px solid var(--stone-light);
-    border-radius:8px;
-    padding:30px 26px;
-  }
-  .benefit-icon{
-    width:38px;height:38px;
-    border-radius:8px;
-    background:var(--sage-tint);
-    display:flex;align-items:center;justify-content:center;
-    margin-bottom:20px;
-  }
-  .benefit-icon svg{stroke:var(--sage-deep);}
-  .benefit-card h3{
-    font-size:1.05rem;
-    font-weight:600;
-    margin-bottom:10px;
-  }
-  .benefit-card p{
-    color:var(--stone);
-    font-size:0.93rem;
-  }
-
-  /* ---------- examples ---------- */
-  .examples-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:24px;
-  }
-  .example{
-    background:var(--white);
-    border:1px solid var(--stone-light);
-    border-radius:10px;
-    overflow:hidden;
-  }
-  .example .browser-body{padding:16px;gap:10px;}
-  .example .bblock.hero-img{height:80px;}
-  .example-caption{
-    padding:16px 18px 20px;
-    border-top:1px solid var(--stone-light);
-  }
-  .example-caption .tag{display:block;margin-bottom:4px;}
-
-  /* ---------- testimonial ---------- */
-  .testimonial{
-    background:var(--ink);
-    color:var(--cream);
-  }
-  .testimonial-inner{
-    max-width:760px;
-    text-align:center;
-    margin:0 auto;
-  }
-  .testimonial blockquote{
-    font-size:clamp(1.3rem,2.4vw,1.7rem);
-    font-weight:500;
-    line-height:1.4;
-    margin-bottom:28px;
-  }
-  .testimonial .slot{border-color:rgba(246,242,234,0.3);}
-  .testimonial .slot::before{background:var(--ink);color:var(--cream);}
-  .testimonial-meta{
-    display:flex;
-    justify-content:center;
-    gap:14px;
-    font-size:0.9rem;
-    color:var(--stone-light);
-  }
-
-  /* ---------- contact ---------- */
-  .contact-grid{
-    display:grid;
-    grid-template-columns:0.9fr 1.1fr;
-    gap:56px;
-  }
-  .contact-list{
-    display:flex;
-    flex-direction:column;
-    gap:18px;
-    margin-top:28px;
-  }
-  .contact-row{
-    display:flex;
-    align-items:center;
-    gap:14px;
-    padding:16px 18px;
-  }
-  .contact-row .ico{
-    width:34px;height:34px;
-    border-radius:50%;
-    background:var(--sage-tint);
-    display:flex;align-items:center;justify-content:center;
-    flex-shrink:0;
-  }
-  .contact-row .ico svg{stroke:var(--sage-deep);width:16px;height:16px;}
-
-  form{
-    background:var(--white);
-    border:1px solid var(--stone-light);
-    border-radius:10px;
-    padding:32px;
-    display:flex;
-    flex-direction:column;
-    gap:18px;
-  }
-  .field label{
-    display:block;
-    font-size:0.82rem;
-    color:var(--stone);
-    margin-bottom:6px;
-  }
-  .field input, .field textarea{
-    width:100%;
-    border:1px solid var(--stone-light);
-    border-radius:6px;
-    padding:11px 13px;
-    font-family:inherit;
-    font-size:0.95rem;
-    background:var(--cream);
-    color:var(--ink);
-  }
-  .field textarea{resize:vertical;min-height:100px;}
-  form .btn-primary{
-    align-self:flex-start;
-    margin-top:6px;
-    border-radius:6px;
-  }
-
-  /* ---------- footer ---------- */
-  footer{
-    border-top:1px solid var(--stone-light);
-    padding:44px 0;
-  }
-  .footer-row{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:16px;
-  }
-  .footer-links{
-    display:flex;
-    gap:24px;
-    font-size:0.86rem;
-    color:var(--stone);
-  }
-  .footer-copy{
-    font-size:0.8rem;
-    color:var(--stone);
-  }
-
-  /* ---------- responsive ---------- */
-  @media (max-width:900px){
-    .hero{grid-template-columns:1fr;padding:64px 0;}
-    .steps{grid-template-columns:1fr;gap:28px;}
-    .step{border-left:none;padding-left:0;border-top:1px solid var(--stone-light);padding-top:24px;}
-    .step:first-child{border-top:none;padding-top:0;}
-    .benefits-grid{grid-template-columns:1fr 1fr;}
-    .examples-grid{grid-template-columns:1fr;}
-    .contact-grid{grid-template-columns:1fr;gap:36px;}
-    nav ul{display:none;}
-    .nav-toggle{
-      display:inline-flex;
-      background:none;border:1px solid var(--stone-light);
-      border-radius:6px;padding:8px 10px;
-    }
-  }
-  @media (max-width:600px){
-    .wrap{padding:0 20px;}
-    .benefits-grid{grid-template-columns:1fr;}
-    .hero-ctas{flex-direction:column;align-items:stretch;}
-  }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"L&J Optimization I/S","description":"Hjemmesider til VVS-virksomheder og andre håndværksfag.","url":"https://ljoptimization.dk/","email":"hej@ljoptimization.dk","telephone":"+4512345678","areaServed":"DK","address":{"@type":"PostalAddress","addressLocality":"København","addressCountry":"DK"}}
+</script>
 </head>
 <body>
+<a class="skip" href="#main">Spring til indhold</a>
 
-<header>
-  <div class="wrap nav-row">
-    <div class="logo-slot slot" data-slot="Logo">[Firmanavn]</div>
-    <nav>
-      <ul>
-        <li><a href="#ydelser">Ydelser</a></li>
-        <li><a href="#proces">Sådan foregår det</a></li>
-        <li><a href="#eksempler">Eksempler</a></li>
-        <li><a href="#kontakt">Kontakt</a></li>
-      </ul>
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="logo" href="index.html">L<b>&amp;</b>J Optimization <span>I/S</span></a>
+    <button class="burger" type="button" aria-label="Åbn menu" aria-expanded="false" aria-controls="hovedmenu"><i></i></button>
+    <nav class="nav" id="hovedmenu" aria-label="Hovedmenu">
+      <a href="arbejde.html">Arbejde</a>
+      <a href="ydelser.html">Ydelser</a>
+      <a href="priser.html">Priser</a>
+      <a href="om.html">Om os</a>
+      <a class="btn btn--primary" href="kontakt.html">Få et tilbud</a>
     </nav>
-    <button class="btn btn-primary">[Book et møde]</button>
   </div>
 </header>
 
-<main>
+<main id="main">
 
   <!-- HERO -->
-  <section class="hero wrap">
-    <div>
-      <span class="eyebrow tag">Til virksomheder uden hjemmeside</span>
-      <h1>Vi bygger <span class="slot" data-slot="Titel">jeres hjemmeside</span><br>fra bunden</h1>
-      <p class="sub slot" data-slot="Undertekst" style="padding:16px 18px;">Kort beskrivelse af jeres service — hvad I laver, for hvem, og hvorfor det er nemt at komme i gang.</p>
-      <div class="hero-ctas">
-        <button class="btn btn-primary">[Kom i gang]</button>
-        <button class="btn btn-ghost">[Se eksempler]</button>
-      </div>
-      <div class="hero-meta mono">[Antal kunder] virksomheder har fået deres hjemmeside via os</div>
-    </div>
-
-    <div class="browser">
-      <div class="browser-bar">
-        <span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span>
-        <div class="browser-url mono">jeres-firma.dk</div>
-      </div>
-      <div class="browser-body">
-        <div class="bblock line w40"></div>
-        <div class="bblock hero-img"></div>
-        <div class="bblock line w60"></div>
-        <div class="bblock line w40"></div>
-        <div class="bblock-row">
-          <div class="bblock"></div>
-          <div class="bblock"></div>
-          <div class="bblock"></div>
+  <section class="section on-dark blueprint" style="padding-bottom:clamp(56px,7vw,96px)">
+    <div class="wrap">
+      <div style="display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(36px,5vw,64px);align-items:center" class="hero-grid">
+        <div>
+          <span class="kicker">Hjemmesider til VVS, el og byg</span>
+          <h1>Dine kunder googler dig.<br>Hvad finder de?</h1>
+          <p class="lead" style="margin-top:24px">Vi bygger hjemmesider til håndværksvirksomheder. Ingen skabelon, ingen tunge systemer — en side der åbner med det samme, ser rigtig ud på telefonen og gør det nemt at ringe til dig.</p>
+          <div class="btns" style="margin-top:32px">
+            <a class="btn btn--primary" href="kontakt.html">Få et fast tilbud</a>
+            <a class="btn btn--ghost" href="arbejde.html">Se to sider vi har bygget</a>
+          </div>
+          <p class="pagehead__meta"><span><b>14 dage</b> fra ja til online</span><span><b>Fast pris</b> på skrift</span><span><b>Ingen</b> binding</span></p>
         </div>
+
+        <div>
+          <div class="compare" style="--pos:52%">
+            <div class="compare__pane compare__pane--after" aria-hidden="true">
+              <div class="mini mini--new">
+                <div class="mini__bar"><span class="mini__dots"><i></i><i></i><i></i></span> nordvestvvs.dk</div>
+                <div class="mini__body">
+                  <div class="new-top"><span class="new-logo">NORDVEST VVS</span><span class="new-call">Ring 12 34 56 78</span></div>
+                  <div class="new-hero">
+                    <h4>Akut VVS i København — vi rykker i dag</h4>
+                    <p>Utæt rør, kold radiator eller et toilet der løber? Ring, så aftaler vi et tidspunkt med det samme.</p>
+                    <div class="new-btns"><span>Ring nu</span><span>Skriv til os</span></div>
+                  </div>
+                  <div class="new-chips"><i>Døgnvagt</i><i>Fast pris</i><i>Autoriseret</i></div>
+                </div>
+              </div>
+              <span class="compare__tag compare__tag--after">Efter</span>
+            </div>
+            <div class="compare__pane compare__pane--before" aria-hidden="true">
+              <div class="mini mini--old">
+                <div class="mini__bar"><span class="mini__dots"><i></i><i></i><i></i></span> www.nordvest-vvs.dk/index2.htm</div>
+                <div class="mini__body">
+                  <div class="old-banner">NORDVEST VVS ApS</div>
+                  <div class="old-nav"><u>Forside</u> | <u>Om os</u> | <u>Ydelser</u> | <u>Gæstebog</u> | <u>Links</u></div>
+                  <div class="old-body">
+                    <h4>Velkommen til vores hjemmeside!</h4>
+                    <p>Vi udfører alt indenfor vvs, blikkenslager og fjernvarme. Kontakt os for et uforpligtende tilbud.</p>
+                    <div class="old-cols">
+                      <div class="old-img">billede.jpg</div>
+                      <ul><li><u>Badeværelser</u></li><li><u>Fjernvarme</u></li><li><u>Tagrender</u></li></ul>
+                    </div>
+                    <p class="old-foot">Sidst opdateret: 14-03-2011 · Besøgende: 004312</p>
+                  </div>
+                </div>
+              </div>
+              <span class="compare__tag compare__tag--before">Før</span>
+            </div>
+            <div class="compare__handle"></div>
+            <input class="compare__range" type="range" min="0" max="100" value="52" step="0.1" aria-label="Træk for at sammenligne før og efter">
+          </div>
+          <p class="compare__hint">← Træk i håndtaget →</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POSITIONERING -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head reveal">
+        <span class="kicker">Hvorfor os</span>
+        <h2>Vi laver én ting, og vi laver den ordentligt</h2>
+        <p class="lead">Der findes bureauer, der kan lave alt. Vi kan lave hjemmesider til håndværkere. Det betyder, at vi kender dine kunder, dine sæsoner og de spørgsmål, du får i telefonen — og at du ikke betaler for et system, du aldrig kommer til at bruge.</p>
+      </div>
+
+      <div class="grid grid--3 reveal">
+        <article class="card">
+          <span class="card__kicker">Fart</span>
+          <h3>Bygget i hånden, ikke klikket sammen</h3>
+          <p>Ren HTML og CSS. Ingen sidebygger, ingen tredive plugins der skal opdateres. Derfor åbner siden med det samme — også på 4G ude i bilen.</p>
+        </article>
+        <article class="card">
+          <span class="card__kicker">Fokus</span>
+          <h3>Én ting skal siden kunne</h3>
+          <p>Få den, der leder efter en håndværker, til at ringe. Alt der ikke hjælper med det, ryger ud igen — også selvom det ser flot ud.</p>
+        </article>
+        <article class="card">
+          <span class="card__kicker">Ansvar</span>
+          <h3>Vi passer den bagefter</h3>
+          <p>Hosting, backup og små rettelser er med i driften. Skal en pris eller en åbningstid ændres, skriver du til os — så er det klaret samme dag.</p>
+        </article>
       </div>
     </div>
   </section>
 
   <!-- PROCES -->
-  <section class="process" id="proces">
+  <section class="section on-dark">
     <div class="wrap">
-      <div class="section-head">
-        <span class="tag">Sådan foregår det</span>
-        <h2>Tre trin, fra idé til live hjemmeside</h2>
+      <div class="section__head reveal">
+        <span class="kicker">Sådan gør vi</span>
+        <h2>Fire skridt. Du bruger cirka en time i alt.</h2>
+        <p class="lead">Du skal ikke skrive tekster, vælge skrifttyper eller finde ud af, hvad DNS er. Det er vores arbejde.</p>
       </div>
-      <div class="steps">
+      <div class="steps reveal">
         <div class="step">
-          <span class="step-num mono">01</span>
-          <h3>[Trin 1 — Titel]</h3>
-          <p>[Kort beskrivelse af det første trin i forløbet, fx opstartssamtale eller behovsafklaring.]</p>
-        </div>
-        <div class="step">
-          <span class="step-num mono">02</span>
-          <h3>[Trin 2 — Titel]</h3>
-          <p>[Kort beskrivelse af design- og opbygningsfasen.]</p>
+          <p class="step__no">01 <span>Dag 0</span></p>
+          <h3>Vi ringer sammen</h3>
+          <p>Tyve minutter om, hvad du laver, hvem der ringer til dig, og hvad du gerne vil have mere af.</p>
         </div>
         <div class="step">
-          <span class="step-num mono">03</span>
-          <h3>[Trin 3 — Titel]</h3>
-          <p>[Kort beskrivelse af lancering og overlevering.]</p>
+          <p class="step__no">02 <span>Dag 3–5</span></p>
+          <h3>Du får et udkast</h3>
+          <p>Ikke en skabelon med grå kasser, men den rigtige side med dine tekster og dine billeder — set på din egen telefon.</p>
         </div>
+        <div class="step">
+          <p class="step__no">03 <span>Dag 6–10</span></p>
+          <h3>Vi retter til</h3>
+          <p>Du siger, hvad der skal laves om. To rettelsesrunder er med i prisen, og der er ingen dum feedback.</p>
+        </div>
+        <div class="step">
+          <p class="step__no">04 <span>Dag 14</span></p>
+          <h3>Vi sætter den online</h3>
+          <p>Domæne, sikker forbindelse, formular og Google-profil. Vi tester det hele, før vi siger, den er live.</p>
+        </div>
+      </div>
+      <div class="btns reveal" style="margin-top:44px">
+        <a class="btn btn--ghost" href="ydelser.html">Se hvad der er med</a>
       </div>
     </div>
   </section>
 
-  <!-- YDELSER / FORDELE -->
-  <section id="ydelser">
+  <!-- ARBEJDE-TEASER -->
+  <section class="section">
     <div class="wrap">
-      <div class="section-head">
-        <span class="tag">Hvorfor os</span>
-        <h2>Det I får med i pakken</h2>
-        <p>[Kort intro-tekst om jeres tilgang eller det, der gør jer anderledes end andre bureauer.]</p>
+      <div class="section__head reveal">
+        <span class="kicker">Arbejde</span>
+        <h2>To sider, du kan åbne og prøve</h2>
+        <p class="lead">Vi er nye, så i stedet for at love noget har vi bygget to komplette sider til opdigtede virksomheder. De ligger live. Åbn dem på telefonen og se, hvor hurtigt de kommer frem.</p>
       </div>
-      <div class="benefits-grid">
-        <div class="benefit-card">
-          <div class="benefit-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18"/></svg></div>
-          <h3>[Fordel — titel]</h3>
-          <p>[Kort forklaring af fordel nummer ét.]</p>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
-          <h3>[Fordel — titel]</h3>
-          <p>[Kort forklaring af fordel nummer to, fx leveringstid.]</p>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z"/></svg></div>
-          <h3>[Fordel — titel]</h3>
-          <p>[Kort forklaring af fordel nummer tre, fx support efter lancering.]</p>
-        </div>
+      <div class="btns reveal">
+        <a class="btn btn--primary" href="arbejde.html">Se begge sider</a>
       </div>
     </div>
   </section>
 
-  <!-- EKSEMPLER -->
-  <section id="eksempler" style="background:var(--white);border-top:1px solid var(--stone-light);border-bottom:1px solid var(--stone-light);">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="tag">Tidligere arbejde</span>
-        <h2>Eksempler på hjemmesider vi har bygget</h2>
+  <!-- SLUT-CTA -->
+  <section class="section on-dark blueprint">
+    <div class="wrap endcta reveal">
+      <span class="kicker">Næste skridt</span>
+      <h2>Skal vi tage en snak om din side?</h2>
+      <p class="lead">Fortæl kort, hvad du laver og hvor. Så vender vi tilbage inden for en hverdag med et forslag og en fast pris. Det koster ikke noget.</p>
+      <div class="btns">
+        <a class="btn btn--primary" href="kontakt.html">Skriv til os</a>
+        <a class="btn btn--ghost" href="tel:+4512345678">Ring 12 34 56 78</a>
       </div>
-      <div class="examples-grid">
-        <div class="example">
-          <div class="browser-body">
-            <div class="bblock line w40"></div>
-            <div class="bblock hero-img"></div>
-          </div>
-          <div class="example-caption">
-            <span class="tag">Branche</span>
-            <div>[Kundenavn / projekttitel]</div>
-          </div>
-        </div>
-        <div class="example">
-          <div class="browser-body">
-            <div class="bblock line w40"></div>
-            <div class="bblock hero-img"></div>
-          </div>
-          <div class="example-caption">
-            <span class="tag">Branche</span>
-            <div>[Kundenavn / projekttitel]</div>
-          </div>
-        </div>
-        <div class="example">
-          <div class="browser-body">
-            <div class="bblock line w40"></div>
-            <div class="bblock hero-img"></div>
-          </div>
-          <div class="example-caption">
-            <span class="tag">Branche</span>
-            <div>[Kundenavn / projekttitel]</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIAL -->
-  <section class="testimonial">
-    <div class="wrap testimonial-inner">
-      <blockquote class="slot" data-slot="Citat" style="padding:22px 24px;">Her indsættes et citat fra en tilfreds kunde, om hvordan processen var, og hvad hjemmesiden har betydet for jeres forretning.</blockquote>
-      <div class="testimonial-meta mono">
-        <span>[Navn]</span><span>·</span><span>[Virksomhed]</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- KONTAKT -->
-  <section id="kontakt">
-    <div class="wrap contact-grid">
-      <div>
-        <span class="tag">Kontakt</span>
-        <h2>Klar til at komme i gang?</h2>
-        <p style="color:var(--stone);margin-top:14px;">[Kort tekst der opfordrer til kontakt, fx "Skriv eller ring til os, så finder vi ud af, hvad jeres hjemmeside skal kunne."]</p>
-        <div class="contact-list">
-          <div class="contact-row slot" data-slot="Telefon">
-            <span class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2z"/></svg></span>
-            Telefonnummer
-          </div>
-          <div class="contact-row slot" data-slot="Mail">
-            <span class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-            Mail
-          </div>
-          <div class="contact-row slot" data-slot="Adresse">
-            <span class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M12 22s7-6.3 7-12a7 7 0 0 0-14 0c0 5.7 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
-            Adresse
-          </div>
-        </div>
-      </div>
-
-      <form onsubmit="return false;">
-        <div class="field">
-          <label for="f-navn">Navn</label>
-          <input id="f-navn" type="text" placeholder="[Navn]">
-        </div>
-        <div class="field">
-          <label for="f-mail">Mail</label>
-          <input id="f-mail" type="email" placeholder="[Mail]">
-        </div>
-        <div class="field">
-          <label for="f-besked">Besked</label>
-          <textarea id="f-besked" placeholder="[Fortæl kort om jeres virksomhed og behov]"></textarea>
-        </div>
-        <button class="btn btn-primary" type="submit">[Send besked]</button>
-      </form>
     </div>
   </section>
 
 </main>
 
-<footer>
-  <div class="wrap footer-row">
-    <div class="logo-slot slot" data-slot="Logo">[Firmanavn]</div>
-    <div class="footer-links">
-      <a href="#ydelser">Ydelser</a>
-      <a href="#eksempler">Eksempler</a>
-      <a href="#kontakt">Kontakt</a>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand">
+        <a class="logo" href="index.html">L<b>&amp;</b>J Optimization <span>I/S</span></a>
+        <p>Hjemmesider til håndværksvirksomheder. Bygget i hånden i København.</p>
+      </div>
+      <div>
+        <h4>Sider</h4>
+        <ul>
+          <li><a href="arbejde.html">Arbejde</a></li>
+          <li><a href="ydelser.html">Ydelser</a></li>
+          <li><a href="priser.html">Priser</a></li>
+          <li><a href="om.html">Om os</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="tel:+4512345678">12 34 56 78</a></li>
+          <li><a href="mailto:hej@ljoptimization.dk">hej@ljoptimization.dk</a></li>
+          <li>CVR 00 00 00 00</li>
+        </ul>
+      </div>
     </div>
-    <div class="footer-copy mono">© [År] [Firmanavn]. Alle rettigheder forbeholdes.</div>
+    <div class="site-footer__bar">
+      <span>© <span data-year>2026</span> L&amp;J Optimization I/S</span>
+      <span class="weight" data-weight hidden></span>
+    </div>
   </div>
 </footer>
 
+<script src="assets/js/site.js" defer></script>
+<style>@media (max-width:940px){.hero-grid{grid-template-columns:1fr !important}}</style>
 </body>
 </html>
