@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kontakt — L&amp;J Optimization</title>
+<meta name="description" content="Fortæl kort hvad du laver og hvor. Vi vender tilbage inden for en hverdag med et forslag og en fast pris.">
+<meta name="theme-color" content="#0B1A22">
+<link rel="canonical" href="https://ljoptimization.dk/kontakt.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='5' fill='%230B1A22'/%3E%3Cpath d='M8 8v16h7' stroke='%23F5F6F4' stroke-width='3.4' fill='none'/%3E%3Cpath d='M24 8v11a5 5 0 0 1-7 4.6' stroke='%23E2542B' stroke-width='3.4' fill='none'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<a class="skip" href="#main">Spring til indhold</a>
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="logo" href="index.html">L<b>&amp;</b>J Optimization <span>I/S</span></a>
+    <button class="burger" type="button" aria-label="Åbn menu" aria-expanded="false" aria-controls="hovedmenu"><i></i></button>
+    <nav class="nav" id="hovedmenu" aria-label="Hovedmenu">
+      <a href="arbejde.html">Arbejde</a>
+      <a href="ydelser.html">Ydelser</a>
+      <a href="priser.html">Priser</a>
+      <a href="om.html">Om os</a>
+      <a class="btn btn--primary" href="kontakt.html" aria-current="page">Få et tilbud</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="section on-dark blueprint">
+    <div class="wrap contact">
+      <div>
+        <span class="kicker">Kontakt</span>
+        <h1 style="font-size:clamp(36px,5.2vw,60px)">Fortæl kort,<br>hvad du laver</h1>
+        <p class="lead" style="margin-top:24px">Så vender vi tilbage inden for en hverdag med et forslag og en fast pris. Det koster ikke noget, og du forpligter dig ikke til noget.</p>
+
+        <!-- Ret nummer og mail til jeres egne -->
+        <div class="contact__direct">
+          <a href="tel:+4512345678"><b>Telefon</b><span>12 34 56 78</span></a>
+          <a href="mailto:hej@ljoptimization.dk"><b>Mail</b><span>hej@ljoptimization.dk</span></a>
+        </div>
+
+        <p class="small" style="color:var(--muted-dark);margin-top:30px;max-width:44ch">Vi svarer typisk mellem 8 og 18 på hverdage. Ringer du udenfor, så læg en besked — vi ringer tilbage.</p>
+      </div>
+
+      <form class="lead-form" name="tilbud" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="tilbud">
+        <p class="hp"><label>Udfyld ikke dette felt: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+
+        <div class="field field--row">
+          <div>
+            <label for="navn">Navn</label>
+            <input id="navn" name="navn" type="text" autocomplete="name" required>
+          </div>
+          <div>
+            <label for="firma">Virksomhed</label>
+            <input id="firma" name="firma" type="text" autocomplete="organization">
+          </div>
+        </div>
+
+        <div class="field field--row">
+          <div>
+            <label for="telefon">Telefon</label>
+            <input id="telefon" name="telefon" type="tel" autocomplete="tel" required>
+          </div>
+          <div>
+            <label for="mail">Mail</label>
+            <input id="mail" name="mail" type="email" autocomplete="email" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="fag">Fag</label>
+          <select id="fag" name="fag">
+            <option>VVS</option>
+            <option>El</option>
+            <option>Tømrer / snedker</option>
+            <option>Murer</option>
+            <option>Maler</option>
+            <option>Andet håndværk</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="situation">Hvor står du nu?</label>
+          <select id="situation" name="situation">
+            <option>Jeg har ingen hjemmeside</option>
+            <option>Jeg har en gammel, der trænger</option>
+            <option>Jeg har en, men den giver ingen opkald</option>
+            <option>Jeg ved det ikke — I må sige det</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="besked">Hvad laver du, og hvor?</label>
+          <textarea id="besked" name="besked" placeholder="Fx: VVS og fjernvarme på Vestegnen, mest private kunder og lidt akutarbejde."></textarea>
+        </div>
+
+        <button class="btn btn--primary btn--wide" type="submit">Send forespørgsel</button>
+        <p class="form__note">Vi bruger kun dine oplysninger til at svare dig. Ikke andet.</p>
+        <p class="form__status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head reveal">
+        <span class="kicker">Hvad så nu</span>
+        <h2>Sådan ser den første uge ud</h2>
+      </div>
+      <div class="steps reveal">
+        <div class="step" style="border-top-color:var(--line)">
+          <p class="step__no">01 <span style="color:var(--muted)">Inden for en hverdag</span></p>
+          <h3>Vi svarer</h3>
+          <p style="color:var(--muted)">Med et par spørgsmål og et forslag til, hvad der giver mening for dig. Ikke en salgsmail.</p>
+        </div>
+        <div class="step" style="border-top-color:var(--line)">
+          <p class="step__no">02 <span style="color:var(--muted)">Når det passer dig</span></p>
+          <h3>Vi ringer i tyve minutter</h3>
+          <p style="color:var(--muted)">Gerne i bilen eller i frokostpausen. Vi skal bare høre, hvordan din forretning ser ud.</p>
+        </div>
+        <div class="step" style="border-top-color:var(--line)">
+          <p class="step__no">03 <span style="color:var(--muted)">Dagen efter</span></p>
+          <h3>Du får et tilbud på skrift</h3>
+          <p style="color:var(--muted)">Fast pris, hvad der er med, og hvornår siden er live. Ingen bindende accept, ingen opfølgning hver anden dag.</p>
+        </div>
+        <div class="step" style="border-top-color:var(--line)">
+          <p class="step__no">04 <span style="color:var(--muted)">Når du siger ja</span></p>
+          <h3>Vi går i gang</h3>
+          <p style="color:var(--muted)">Fra det øjeblik er der fjorten dage til, at siden er online.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand">
+        <a class="logo" href="index.html">L<b>&amp;</b>J Optimization <span>I/S</span></a>
+        <p>Hjemmesider til håndværksvirksomheder. Bygget i hånden i København.</p>
+      </div>
+      <div>
+        <h4>Sider</h4>
+        <ul>
+          <li><a href="arbejde.html">Arbejde</a></li>
+          <li><a href="ydelser.html">Ydelser</a></li>
+          <li><a href="priser.html">Priser</a></li>
+          <li><a href="om.html">Om os</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="tel:+4512345678">12 34 56 78</a></li>
+          <li><a href="mailto:hej@ljoptimization.dk">hej@ljoptimization.dk</a></li>
+          <li>CVR 00 00 00 00</li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-footer__bar">
+      <span>© <span data-year>2026</span> L&amp;J Optimization I/S</span>
+      <span class="weight" data-weight hidden></span>
+    </div>
+  </div>
+</footer>
+
+<script src="site.js" defer></script>
+</body>
+</html>

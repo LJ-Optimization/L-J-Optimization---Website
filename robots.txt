@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /demo-vvs.html
+Disallow: /demo-el.html
+
+Sitemap: https://ljoptimization.dk/sitemap.xml
