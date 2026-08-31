@@ -113,7 +113,13 @@ p{margin:0 0 1em}
 @media (max-width:980px){
   .burger{display:inline-flex}
   .nav{
-    position:absolute;top:100%;left:0;right:0;background:var(--paper);border-bottom:1px solid var(--line);
+    /* position:fixed, ikke absolute: en absolut positioneret dropdown under
+       et position:sticky-sidehoved regner sin plads forkert ud, når siden er
+       scrollet ned — menuen kan så åbne usynligt, uden for skærmen. Fixed
+       regner altid ud fra selve skærmen, uanset scroll. --headerh sættes af
+       site.js ud fra sidehovedets faktiske højde. */
+    position:fixed;top:var(--headerh,57px);left:0;right:0;bottom:0;background:var(--paper);
+    border-bottom:1px solid var(--line);overflow-y:auto;-webkit-overflow-scrolling:touch;
     flex-direction:column;align-items:stretch;gap:0;padding:8px var(--pad) 24px;
     transform:translateY(-120%);transition:transform .28s cubic-bezier(.3,.8,.4,1);z-index:99;
     box-shadow:0 24px 40px -28px rgba(11,26,34,.55)
