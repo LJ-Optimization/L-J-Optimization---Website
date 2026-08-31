@@ -41,7 +41,17 @@
     </div>
   </section>
 
-  <section class="section">
+  <nav class="onthispage" aria-label="På denne side">
+    <div class="wrap">
+      <ul>
+        <li><a href="#pakker">De to pakker</a></li>
+        <li><a href="#tilvalg">Tilvalg</a></li>
+        <li><a href="#faq">Det med småt</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="section" id="pakker">
     <div class="wrap">
       <div class="prices reveal">
         <article class="price">
@@ -61,7 +71,7 @@
         </article>
 
         <article class="price price--lead">
-          <span class="price__flag">Mest solgte</span>
+          <span class="price__flag">Vores anbefaling</span>
           <h3>Hele butikken</h3>
           <p class="price__sub">Til dig med flere fagområder, der gerne vil findes på hver enkelt af dem.</p>
           <p class="price__amount">11.900 kr.</p>
@@ -86,51 +96,57 @@
   </section>
 
   <!-- TILVALG -->
-  <section class="section on-dark">
+  <section class="section on-cold" id="tilvalg">
     <div class="wrap">
-      <div class="section__head reveal">
-        <span class="kicker">Tilvalg</span>
-        <h2>Kun hvis du har brug for det</h2>
+      <div class="section__head section__head--split reveal">
+        <div>
+          <span class="kicker">Tilvalg</span>
+          <h2>Kun hvis du har brug for det</h2>
+        </div>
+        <p class="lead">Intet af det her er nødvendigt for at komme godt fra start. Det står her, så du kender prisen, hvis du senere får brug for det.</p>
       </div>
       <div class="table-scroll reveal">
-        <table class="table" style="color:var(--paper)">
+        <table class="table">
           <thead>
-            <tr><th scope="col" style="border-bottom-color:var(--paper)">Tilvalg</th><th scope="col" style="border-bottom-color:var(--paper)">Pris</th><th scope="col" style="border-bottom-color:var(--paper)">Hvornår giver det mening?</th></tr>
+            <tr><th scope="col">Tilvalg</th><th scope="col">Pris</th><th scope="col">Hvornår giver det mening?</th></tr>
           </thead>
           <tbody>
-            <tr style="border-color:var(--line-dark)">
-              <td style="border-bottom-color:var(--line-dark)">Ekstra side</td>
-              <td style="border-bottom-color:var(--line-dark)">1.400 kr.</td>
-              <td style="border-bottom-color:var(--line-dark)">Når du får et nyt fagområde, du gerne vil findes på.</td>
+            <tr>
+              <td>Ekstra side</td>
+              <td>1.400 kr.</td>
+              <td>Når du får et nyt fagområde, du gerne vil findes på.</td>
             </tr>
             <tr>
-              <td style="border-bottom-color:var(--line-dark)">Fotodag med os</td>
-              <td style="border-bottom-color:var(--line-dark)">2.500 kr.</td>
-              <td style="border-bottom-color:var(--line-dark)">Har du ingen brugbare billeder, kører vi med en dag og tager dem.</td>
+              <td>Fotodag med os</td>
+              <td>2.500 kr.</td>
+              <td>Har du ingen brugbare billeder, kører vi med en dag og tager dem.</td>
             </tr>
             <tr>
-              <td style="border-bottom-color:var(--line-dark)">Tekst til Google-profil</td>
-              <td style="border-bottom-color:var(--line-dark)">900 kr.</td>
-              <td style="border-bottom-color:var(--line-dark)">Hvis profilen skal bruges aktivt med opslag og svar på anmeldelser.</td>
+              <td>Tekst til Google-profil</td>
+              <td>900 kr.</td>
+              <td>Hvis profilen skal bruges aktivt med opslag og svar på anmeldelser.</td>
             </tr>
             <tr>
-              <td style="border-bottom-color:var(--line-dark)">Flytning af gammelt domæne</td>
-              <td style="border-bottom-color:var(--line-dark)">Gratis</td>
-              <td style="border-bottom-color:var(--line-dark)">Altid. Vi tager os af det, uanset hvor rodet det ser ud.</td>
+              <td>Flytning af gammelt domæne</td>
+              <td class="yes">Gratis</td>
+              <td>Altid. Vi tager os af det, uanset hvor rodet det ser ud.</td>
             </tr>
           </tbody>
         </table>
       </div>
-      <p class="small reveal" style="margin-top:26px;color:var(--muted-dark);max-width:70ch">Domænet (fx dinvirksomhed.dk) køber du selv i dit eget navn — typisk under 100 kr. om året. Så er det dit, uanset hvad der sker med os. Vi hjælper med opsætningen uden beregning.</p>
+      <p class="small reveal" style="margin-top:26px;max-width:70ch">Domænet (fx dinvirksomhed.dk) køber du selv i dit eget navn — typisk under 100 kr. om året. Så er det dit, uanset hvad der sker med os. Vi hjælper med opsætningen uden beregning.</p>
     </div>
   </section>
 
   <!-- FAQ -->
   <section class="section" id="faq">
     <div class="wrap">
-      <div class="section__head reveal">
-        <span class="kicker">Det med småt</span>
-        <h2>Sagt højt, så du ikke skal spørge</h2>
+      <div class="section__head section__head--split reveal">
+        <div>
+          <span class="kicker">Det med småt</span>
+          <h2>Sagt højt, så du ikke skal spørge</h2>
+        </div>
+        <p class="lead">De otte spørgsmål vi oftest får stillet i telefonen. Svarene er de samme, uanset hvem der spørger.</p>
       </div>
       <div class="faq reveal">
         <details open>
@@ -169,11 +185,30 @@
     </div>
   </section>
 
-  <section class="section blueprint on-dark">
+  <section class="section section--sm on-dark">
+    <div class="wrap">
+      <div class="nextnav reveal">
+        <a href="ydelser.html">
+          <b>Videre herfra</b>
+          <strong>Hvad er med i prisen?</strong>
+          <p>De seks ting der afgør om en håndværkerside virker — og listen over det, vi siger nej til.</p>
+          <span class="arrow">→</span>
+        </a>
+        <a href="om.html">
+          <b>Eller læs om</b>
+          <strong>Hvem du taler med</strong>
+          <p>To mand i København. Ingen sælger imellem dig og den, der bygger siden.</p>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section blueprint on-dark" style="padding-top:0">
     <div class="wrap endcta reveal">
       <span class="kicker">Næste skridt</span>
-      <h2>De første tre kunder får 25 % rabat</h2>
-      <p class="lead">Til gengæld må vi vise siden frem bagefter. Vi er nye — det skal du have noget ud af, ikke kun os.</p>
+      <h2>Få prisen på skrift</h2>
+      <p class="lead">Fortæl kort, hvad du laver og hvor. Så får du et forslag og en fast pris inden for en hverdag. Svarer du ikke, hører du ikke fra os igen — vi følger ikke op hver anden dag.</p>
       <div class="btns"><a class="btn btn--primary" href="kontakt.html">Få et fast tilbud</a></div>
     </div>
   </section>
@@ -212,6 +247,11 @@
     </div>
   </div>
 </footer>
+
+<div class="callbar">
+  <a class="btn btn--primary" href="tel:+4512345678">Ring til os</a>
+  <a class="btn btn--ghost" href="kontakt.html">Få et tilbud</a>
+</div>
 
 <script src="site.js" defer></script>
 </body>

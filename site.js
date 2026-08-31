@@ -9,14 +9,44 @@
     el.textContent = new Date().getFullYear();
   });
 
-  /* --- Header: skygge når man scroller --- */
+  /* --- Header: skygge når man scroller, og højden ud som variabel --- */
   var header = document.querySelector('.site-header');
   if (header) {
     var stick = function () {
       header.setAttribute('data-stuck', window.scrollY > 8 ? 'true' : 'false');
     };
+    var measure = function () {
+      document.documentElement.style.setProperty('--headerh', header.offsetHeight + 'px');
+    };
     stick();
+    measure();
     window.addEventListener('scroll', stick, { passive: true });
+    window.addEventListener('resize', measure, { passive: true });
+  }
+
+  /* --- På denne side: vis hvilket afsnit man står i --- */
+  var subnav = document.querySelector('.onthispage');
+  if (subnav) {
+    var spots = [];
+    subnav.querySelectorAll('a[href^="#"]').forEach(function (link) {
+      var target = document.getElementById(link.getAttribute('href').slice(1));
+      if (target) spots.push({ link: link, target: target });
+    });
+    if (spots.length) {
+      var mark = function () {
+        var line = window.scrollY + subnav.offsetHeight + 120;
+        var current = spots[0];
+        spots.forEach(function (spot) {
+          if (spot.target.getBoundingClientRect().top + window.scrollY <= line) current = spot;
+        });
+        spots.forEach(function (spot) {
+          spot.link.setAttribute('data-active', String(spot === current));
+        });
+      };
+      mark();
+      window.addEventListener('scroll', mark, { passive: true });
+      window.addEventListener('resize', mark, { passive: true });
+    }
   }
 
   /* --- Mobilmenu --- */

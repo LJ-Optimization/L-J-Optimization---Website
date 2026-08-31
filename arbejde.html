@@ -36,7 +36,7 @@
     <div class="wrap">
       <span class="kicker">Arbejde</span>
       <h1>To sider,<br>du kan åbne og prøve</h1>
-      <p class="lead" style="margin-top:24px">Vi er et nyt firma, så vi kunne enten skrive noget luftigt om vores metode — eller bygge to komplette sider og lægge dem live. Vi valgte det sidste. Virksomhederne er opdigtede. Arbejdet er ikke.</p>
+      <p class="lead" style="margin-top:24px">De fleste bureauer viser skærmbilleder. Vi har bygget to komplette sider og lagt dem live, så du selv kan trykke rundt på dem. Virksomhederne er opdigtede — arbejdet er ikke.</p>
       <p class="pagehead__meta"><span><b>2</b> sider, live</span><span><b>0</b> linjer JavaScript</span><span><b>1</b> stylesheet deler dem begge</span></p>
     </div>
   </section>
@@ -109,12 +109,128 @@
     </div>
   </section>
 
+  <!-- ÉT STYLESHEET — 3D-RENDER -->
+  <section class="section on-cold">
+    <div class="wrap">
+      <div class="split">
+        <div class="split__body">
+          <span class="kicker">Det der ikke kan ses</span>
+          <h2>Samme ark, to sider der ikke ligner hinanden</h2>
+          <p class="lead">De to demoer deler nøjagtig den samme CSS-fil. Forskellen er otte variabler: to farver, en skriftstørrelse, en hjørneradius. Resten er identisk.</p>
+          <p class="lead">Det er derfor, vi kan bygge en side på under en uge uden at genbruge det samme udseende. Og det er derfor, en fejl på en knap bliver rettet ét sted — hvorefter alle vores kunder har fået rettelsen.</p>
+        </div>
+
+        <div class="render render--light">
+          <svg viewBox="0 0 700 495" role="img" aria-label="Isometrisk tegning: to forskellige hjemmesider svæver over det samme stylesheet, som indeholder otte farvevariabler.">
+            <defs>
+              <radialGradient id="ly-fade" cx="0.5" cy="0.5" r="0.55">
+                <stop offset="0.25" stop-color="#fff"/><stop offset="1" stop-color="#000"/>
+              </radialGradient>
+              <mask id="ly-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="700" height="495">
+                <rect width="700" height="495" fill="url(#ly-fade)"/>
+              </mask>
+            </defs>
+
+            <!-- isometrisk raster -->
+            <g mask="url(#ly-mask)">
+              <g transform="matrix(0.866,0.5,-0.866,0.5,310,250)" stroke="#2E7F9E" stroke-opacity="0.28" stroke-width="1" vector-effect="non-scaling-stroke" fill="none">
+                <path d="M-120,-140 L-120,340 M-40,-140 L-40,340 M40,-140 L40,340 M120,-140 L120,340 M200,-140 L200,340 M280,-140 L280,340 M340,-140 L340,340"/>
+                <path d="M-120,-140 L340,-140 M-120,-60 L340,-60 M-120,20 L340,20 M-120,100 L340,100 M-120,180 L340,180 M-120,260 L340,260 M-120,340 L340,340"/>
+              </g>
+            </g>
+
+            <!-- stylesheet-pladen -->
+            <g transform="translate(0,11)" opacity="0.22">
+              <g transform="matrix(0.866,0.5,-0.866,0.5,310,250)">
+                <rect x="0" y="0" width="220" height="220" rx="6" fill="#0B1A22"/>
+              </g>
+            </g>
+            <g transform="matrix(0.866,0.5,-0.866,0.5,310,250)">
+              <rect x="0" y="0" width="220" height="220" rx="6" fill="#0E2833"/>
+              <rect x="20" y="24" width="120" height="8" rx="4" fill="#4E9DBB"/>
+              <rect x="20" y="42" width="84" height="8" rx="4" fill="#2E7F9E" opacity="0.75"/>
+              <rect x="34" y="60" width="110" height="8" rx="4" fill="#2E7F9E" opacity="0.75"/>
+              <rect x="34" y="78" width="92" height="8" rx="4" fill="#2E7F9E" opacity="0.75"/>
+              <!-- de otte variabler -->
+              <rect x="20" y="108" width="17" height="17" rx="2" fill="#123A5C"/>
+              <rect x="43" y="108" width="17" height="17" rx="2" fill="#F5A623"/>
+              <rect x="66" y="108" width="17" height="17" rx="2" fill="#14161A"/>
+              <rect x="89" y="108" width="17" height="17" rx="2" fill="#FFD100"/>
+              <rect x="112" y="108" width="17" height="17" rx="2" fill="#2E7F9E"/>
+              <rect x="135" y="108" width="17" height="17" rx="2" fill="#E2542B"/>
+              <rect x="158" y="108" width="17" height="17" rx="2" fill="#F5F6F4"/>
+              <rect x="181" y="108" width="17" height="17" rx="2" fill="#56707C"/>
+              <rect x="20" y="144" width="140" height="8" rx="4" fill="#2E7F9E" opacity="0.75"/>
+              <rect x="20" y="162" width="100" height="8" rx="4" fill="#2E7F9E" opacity="0.75"/>
+              <rect x="34" y="180" width="120" height="8" rx="4" fill="#4E9DBB"/>
+            </g>
+
+            <!-- forbindelseslinjer -->
+            <g stroke="#2E7F9E" stroke-width="1.6" stroke-dasharray="4 5" opacity="0.8">
+              <path d="M215,262 L215,312"/>
+              <path d="M415,262 L415,318"/>
+            </g>
+
+            <!-- demo 1: nordvestvvs.dk -->
+            <g transform="translate(0,8)" opacity="0.2">
+              <g transform="matrix(0.866,0.5,-0.866,0.5,215,150)">
+                <rect x="0" y="0" width="110" height="110" rx="5" fill="#0B1A22"/>
+              </g>
+            </g>
+            <g transform="matrix(0.866,0.5,-0.866,0.5,215,150)">
+              <rect x="0" y="0" width="110" height="110" rx="5" fill="#0C2842"/>
+              <rect x="14" y="13" width="40" height="6" rx="3" fill="#FFFFFF" opacity="0.9"/>
+              <rect x="74" y="11" width="22" height="9" rx="2" fill="#F5A623"/>
+              <rect x="8" y="30" width="94" height="46" rx="3" fill="#123A5C"/>
+              <rect x="16" y="38" width="66" height="7" rx="3" fill="#FFFFFF" opacity="0.92"/>
+              <rect x="16" y="49" width="50" height="7" rx="3" fill="#FFFFFF" opacity="0.7"/>
+              <rect x="16" y="62" width="34" height="10" rx="2" fill="#F5A623"/>
+              <rect x="8" y="84" width="28" height="8" rx="2" fill="#FFFFFF" opacity="0.28"/>
+              <rect x="40" y="84" width="28" height="8" rx="2" fill="#FFFFFF" opacity="0.28"/>
+              <rect x="72" y="84" width="24" height="8" rx="2" fill="#FFFFFF" opacity="0.28"/>
+            </g>
+
+            <!-- demo 2: holmel.dk -->
+            <g transform="translate(0,8)" opacity="0.2">
+              <g transform="matrix(0.866,0.5,-0.866,0.5,415,150)">
+                <rect x="0" y="0" width="110" height="110" rx="5" fill="#0B1A22"/>
+              </g>
+            </g>
+            <g transform="matrix(0.866,0.5,-0.866,0.5,415,150)">
+              <rect x="0" y="0" width="110" height="110" rx="5" fill="#14161A"/>
+              <rect x="14" y="13" width="34" height="6" rx="3" fill="#FFFFFF" opacity="0.9"/>
+              <rect x="74" y="11" width="22" height="9" rx="2" fill="#FFD100"/>
+              <rect x="8" y="30" width="94" height="46" rx="3" fill="#22262C"/>
+              <rect x="16" y="38" width="70" height="7" rx="3" fill="#FFFFFF" opacity="0.92"/>
+              <rect x="16" y="49" width="44" height="7" rx="3" fill="#FFFFFF" opacity="0.7"/>
+              <rect x="16" y="62" width="34" height="10" rx="2" fill="#FFD100"/>
+              <rect x="8" y="84" width="26" height="8" rx="2" fill="#FFFFFF" opacity="0.28"/>
+              <rect x="38" y="84" width="30" height="8" rx="2" fill="#FFFFFF" opacity="0.28"/>
+              <rect x="72" y="84" width="24" height="8" rx="2" fill="#FFFFFF" opacity="0.28"/>
+            </g>
+
+            <!-- mærkater -->
+            <text x="215" y="136" font-family="'IBM Plex Mono',monospace" font-size="12.5" letter-spacing="1.4" fill="#2E7F9E" text-anchor="middle">nordvestvvs.dk</text>
+            <text x="415" y="136" font-family="'IBM Plex Mono',monospace" font-size="12.5" letter-spacing="1.4" fill="#2E7F9E" text-anchor="middle">holmel.dk</text>
+            <path d="M501,360 L520,360" stroke="#2E7F9E" stroke-width="1.6"/>
+            <circle cx="501" cy="360" r="3.5" fill="#E2542B"/>
+            <text x="528" y="355" font-family="'IBM Plex Mono',monospace" font-size="11.5" letter-spacing="1.8" fill="#56707C">ÉT ARK</text>
+            <text x="528" y="378" font-family="Archivo,sans-serif" font-size="19" font-weight="800" letter-spacing="-0.4" fill="#0B1A22">site.css</text>
+          </svg>
+          <p class="render__tag">Skitse · otte variabler skiller de to sider ad</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section on-dark">
     <div class="wrap">
-      <div class="section__head reveal">
-        <span class="kicker">Det der ikke kan ses</span>
-        <h2>Begge sider deler ét stylesheet</h2>
-        <p class="lead">De to demoer bruger nøjagtig den samme CSS-fil. Forskellen er otte variabler: to farver, en skriftstørrelse, en hjørneradius. Det er derfor, vi kan bygge en side på under en uge uden at genbruge den samme skabelon visuelt.</p>
+      <div class="section__head section__head--split reveal">
+        <div>
+          <span class="kicker">Hvad du får ud af det</span>
+          <h2>Tre ting, der følger med måden at bygge på</h2>
+        </div>
+        <p class="lead">Ikke funktioner vi har sat på en liste, men konsekvenser af, at siden er lavet i hånden og ikke klikket sammen.</p>
       </div>
       <div class="grid grid--3 reveal">
         <article class="card">
@@ -136,11 +252,30 @@
     </div>
   </section>
 
+  <section class="section section--sm">
+    <div class="wrap">
+      <div class="nextnav reveal">
+        <a href="ydelser.html">
+          <b>Videre herfra</b>
+          <strong>Hvad er med i en side?</strong>
+          <p>De seks ting der afgør om en håndværkerside virker — og listen over det, vi siger nej til.</p>
+          <span class="arrow">→</span>
+        </a>
+        <a href="priser.html">
+          <b>Eller spring til</b>
+          <strong>Hvad koster det?</strong>
+          <p>Faste priser, tilvalg og det med småt. Ingen "kontakt os for et tilbud".</p>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <section class="section blueprint on-dark">
     <div class="wrap endcta reveal">
       <span class="kicker">Næste skridt</span>
-      <h2>Din side kunne være den tredje</h2>
-      <p class="lead">De første tre rigtige kunder får 25&nbsp;% rabat mod, at vi må vise siden frem bagefter.</p>
+      <h2>Skal vi bygge din?</h2>
+      <p class="lead">Fortæl kort, hvad du laver og hvor. Så vender vi tilbage inden for en hverdag med et forslag og en fast pris.</p>
       <div class="btns"><a class="btn btn--primary" href="kontakt.html">Få et fast tilbud</a></div>
     </div>
   </section>
@@ -179,6 +314,11 @@
     </div>
   </div>
 </footer>
+
+<div class="callbar">
+  <a class="btn btn--primary" href="tel:+4512345678">Ring til os</a>
+  <a class="btn btn--ghost" href="kontakt.html">Få et tilbud</a>
+</div>
 
 <script src="site.js" defer></script>
 </body>

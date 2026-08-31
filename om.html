@@ -37,29 +37,34 @@
       <span class="kicker">Om os</span>
       <h1>To mand, der hellere vil<br>lave få sider ordentligt</h1>
       <p class="lead" style="margin-top:24px">L&amp;J Optimization er et interessentskab i København. Vi laver hjemmesider til håndværksvirksomheder, fordi det er et fag, hvor arbejdet næsten altid er i orden — og hjemmesiden næsten aldrig er.</p>
-      <p class="pagehead__meta"><span><b>Stiftet</b> 2026</span><span><b>Ansatte</b> 2</span><span><b>Kontor</b> Nej</span></p>
+      <p class="pagehead__meta"><span><b>Fag</b> VVS, el og byg</span><span><b>Base</b> København</span><span><b>Svar</b> Inden for en hverdag</span></p>
     </div>
   </section>
 
   <!-- HVEM -->
   <section class="section">
     <div class="wrap">
-      <div class="section__head reveal">
-        <span class="kicker">Hvem</span>
-        <h2>Du taler med den, der bygger siden</h2>
-        <p class="lead">Der er ingen sælger imellem. Den, du ringer til, er den, der sidder med koden.</p>
+      <div class="section__head section__head--split reveal">
+        <div>
+          <span class="kicker">Hvem</span>
+          <h2>Du taler med den, der bygger siden</h2>
+        </div>
+        <p class="lead">Der er ingen sælger imellem. Den, du ringer til, er den, der sidder med koden — og den, der tager telefonen, hvis noget skal rettes et halvt år senere.</p>
       </div>
 
-      <!-- Ret navne, roller og tekst herunder. Læg gerne et rigtigt billede ind. -->
+      <!-- Ret navne, roller og tekst herunder. Billedrammen er klar: erstat
+           span-elementet med monogrammet af et img-element, der peger på et
+           rigtigt portræt (4:3, gerne mindst 800 px bredt) og har en alt-tekst
+           med personens navn. Resten passer sig selv. -->
       <div class="people reveal">
         <article class="person">
-          <p class="person__mark">L</p>
+          <div class="person__photo"><span>L</span></div>
           <h3>[Fornavn Efternavn]</h3>
           <p class="person__role">Kode og drift</p>
           <p>Bygger siderne og sørger for, at de er hurtige og bliver ved med at virke. Står for hosting, domæner og alt det tekniske, du ikke skal tænke på.</p>
         </article>
         <article class="person">
-          <p class="person__mark">J</p>
+          <div class="person__photo"><span>J</span></div>
           <h3>[Fornavn Efternavn]</h3>
           <p class="person__role">Tekst og kunder</p>
           <p>Tager snakken med dig og skriver siden, så den lyder som dig og ikke som en reklame. Er også den, der ringer, hvis noget skal afklares undervejs.</p>
@@ -69,11 +74,14 @@
   </section>
 
   <!-- PRINCIPPER -->
-  <section class="section on-dark">
+  <section class="section on-cold">
     <div class="wrap">
-      <div class="section__head reveal">
-        <span class="kicker">Sådan arbejder vi</span>
-        <h2>Fire ting vi har besluttet os for</h2>
+      <div class="section__head section__head--split reveal">
+        <div>
+          <span class="kicker">Sådan arbejder vi</span>
+          <h2>Fire ting vi har besluttet os for</h2>
+        </div>
+        <p class="lead">Beslutninger, ikke slogans. De koster os opgaver en gang imellem, og det er meningen.</p>
       </div>
       <div class="grid grid--2 reveal">
         <article class="card">
@@ -100,17 +108,54 @@
     </div>
   </section>
 
-  <!-- ÆRLIGHED -->
-  <section class="section">
-    <div class="wrap wrap--narrow" style="padding-left:0;padding-right:0">
-      <div class="reveal">
-        <span class="kicker kicker--flame">Helt ærligt</span>
-        <h2 style="margin-bottom:24px">Vi er nye. Her er hvad det betyder for dig.</h2>
-        <p class="lead" style="max-width:none">Vi har ikke tyve cases at vise frem, og vi kommer ikke til at lade som om. Til gengæld har vi to ting, større bureauer ikke har: rigelig tid til din opgave, og en meget stærk grund til at gøre den færdig ordentligt. Vores første kunder er dem, hele forretningen kommer til at hvile på.</p>
-        <div class="offer" style="margin-top:32px">
-          <p><strong>Derfor: de første tre kunder får 25&nbsp;% rabat</strong> mod, at vi må vise siden frem bagefter og bruge jer som reference. Er du ikke tilfreds med det første udkast, stopper vi, og du betaler kun halvdelen.</p>
+  <!-- LØFTER -->
+  <section class="section on-dark">
+    <div class="wrap">
+      <div class="split">
+        <div class="split__body">
+          <span class="kicker kicker--flame">Helt konkret</span>
+          <h2>Det du kan holde os op på</h2>
+          <p class="lead">Fire ting, der står i tilbuddet, hver eneste gang. De er ikke til forhandling, og de gælder også, hvis opgaven bliver sværere end aftalt.</p>
+          <p class="small" style="color:var(--muted-dark);margin-top:28px;max-width:52ch">L&amp;J Optimization I/S er et interessentskab, hvilket betyder, at vi hæfter personligt for firmaet. Det er ikke noget, du behøver tænke over — men det er værd at vide, at vi har vores eget navn på spil, hver gang vi sender en faktura.</p>
         </div>
-        <p class="small" style="margin-top:32px">L&amp;J Optimization I/S er et interessentskab, hvilket betyder at vi hæfter personligt for firmaet. Det er ikke noget, du behøver tænke over — men det er værd at vide, at vi har vores eget navn på spil, hver gang vi sender en faktura.</p>
+
+        <div class="pledges pledges--stack reveal">
+          <div class="pledge">
+            <h3>Prisen holder</h3>
+            <p>Bruger vi længere tid end regnet med, er det vores problem. Beløbet i tilbuddet er det, du betaler.</p>
+          </div>
+          <div class="pledge">
+            <h3>Du kan stoppe efter første udkast</h3>
+            <p>Rammer vi forkert, og vil du ikke fortsætte, betaler du halvdelen og skylder os ikke mere.</p>
+          </div>
+          <div class="pledge">
+            <h3>Domæne og kode er dine</h3>
+            <p>Fra dag ét står domænet i dit navn. Går du videre, får du filerne og hjælp til flytningen.</p>
+          </div>
+          <div class="pledge">
+            <h3>En måneds opsigelse</h3>
+            <p>Driften kører måned for måned. Ingen bindingsperiode og ingen prisstigning uden besked to måneder før.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--sm">
+    <div class="wrap">
+      <div class="nextnav reveal">
+        <a href="arbejde.html">
+          <b>Videre herfra</b>
+          <strong>Se hvad vi bygger</strong>
+          <p>To komplette sider, der ligger live. Åbn dem på telefonen og prøv dem.</p>
+          <span class="arrow">→</span>
+        </a>
+        <a href="priser.html">
+          <b>Eller spring til</b>
+          <strong>Hvad koster det?</strong>
+          <p>To faste priser, fire tilvalg og det med småt — alt sammen på skrift.</p>
+          <span class="arrow">→</span>
+        </a>
       </div>
     </div>
   </section>
@@ -161,6 +206,11 @@
     </div>
   </div>
 </footer>
+
+<div class="callbar">
+  <a class="btn btn--primary" href="tel:+4512345678">Ring til os</a>
+  <a class="btn btn--ghost" href="kontakt.html">Få et tilbud</a>
+</div>
 
 <script src="site.js" defer></script>
 </body>
